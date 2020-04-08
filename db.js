@@ -40,5 +40,14 @@ module.exports = {
                 resolve(result);
             })
         })
+    },
+
+    get_all_hm: (key) => {
+        return new Promise((resolve, reject) => {
+            r_client.hgetall(key, (err, result) => {
+                if (err || !result) reject(err);
+                resolve(result);
+            })
+        })
     }
 }
